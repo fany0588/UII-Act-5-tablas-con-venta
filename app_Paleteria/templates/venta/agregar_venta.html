@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Registrar Venta</h2>
+  <form method="POST" class="shadow p-4 bg-light rounded">
+    {% csrf_token %}
+    <div class="row mb-3">
+      <div class="col">
+        <label for="id_cliente">Cliente:</label>
+        <select name="id_cliente" class="form-select" required>
+          <option value="">Seleccione un cliente</option>
+          {% for c in clientes %}
+          <option value="{{ c.id_cliente }}">{{ c.nombre }} {{ c.apellido }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col">
+        <label for="id_producto">Producto:</label>
+        <select name="id_producto" class="form-select" required>
+          <option value="">Seleccione un producto</option>
+          {% for p in productos %}
+          <option value="{{ p.id_producto }}">{{ p.nombre }} ({{ p.sabor }})</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <label>Cantidad:</label>
+        <input type="number" name="cantidad" class="form-control" required>
+      </div>
+      <div class="col">
+        <label>Método de Pago:</label>
+        <input type="text" name="metodo_pago" class="form-control" placeholder="Efectivo, tarjeta..." required>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <label>Estado:</label>
+        <input type="text" name="estado" class="form-control" placeholder="Completada, pendiente..." required>
+      </div>
+      <div class="col">
+        <label>Observaciones:</label>
+        <input type="text" name="observaciones" class="form-control">
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success px-5">Guardar Venta</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

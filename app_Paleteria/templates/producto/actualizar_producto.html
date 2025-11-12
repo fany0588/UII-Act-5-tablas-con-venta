@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5 p-4 bg-light rounded shadow">
+    <h2 class="text-center text-warning">Actualizar Producto</h2>
+    <form method="POST" action="{% url 'realizar_actualizacion_producto' producto.id_producto %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Nombre:</label>
+            <input type="text" name="nombre" class="form-control" value="{{ producto.nombre }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Sabor:</label>
+            <input type="text" name="sabor" class="form-control" value="{{ producto.sabor }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Precio:</label>
+            <input type="text" name="precio" class="form-control" value="{{ producto.precio }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Stock:</label>
+            <input type="text" name="stock" class="form-control" value="{{ producto.stock }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tipo:</label>
+            <input type="text" name="tipo" class="form-control" value="{{ producto.tipo }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fecha de Elaboración:</label>
+            <input type="date" name="fecha_elaboracion" class="form-control" value="{{ producto.fecha_elaboracion }}">
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary w-100">Actualizar Producto</button>
+    </form>
+</div>
+{% endblock %}

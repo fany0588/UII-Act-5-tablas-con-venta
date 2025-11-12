@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'inicio_paleteria' %}">Sistema de Administración Paletería</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'inicio_paleteria' %}">Inicio</a>
+        </li>
+
+        <!-- PRODUCTO -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Producto</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'agregar_producto' %}">Agregar Producto</a></li>
+            <li><a class="dropdown-item" href="{% url 'ver_producto' %}">Ver Productos</a></li>
+          </ul>
+        </li>
+
+        <!-- CLIENTE -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cliente</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'agregar_cliente' %}">Agregar Cliente</a></li>
+            <li><a class="dropdown-item" href="{% url 'ver_cliente' %}">Ver Clientes</a></li>
+          </ul>
+        </li>
+
+        <!-- VENTA -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Venta</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'agregar_venta' %}">Agregar Venta</a></li>
+            <li><a class="dropdown-item" href="{% url 'ver_venta' %}">Ver Ventas</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5 p-4 bg-light rounded shadow">
+    <h2 class="text-center text-primary">Agregar Producto</h2>
+    <form method="POST" action="{% url 'agregar_producto' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Nombre:</label>
+            <input type="text" name="nombre" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Sabor:</label>
+            <input type="text" name="sabor" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Precio:</label>
+            <input type="text" name="precio" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Stock:</label>
+            <input type="text" name="stock" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tipo:</label>
+            <input type="text" name="tipo" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fecha de Elaboración:</label>
+            <input type="date" name="fecha_elaboracion" class="form-control" placeholder="YYYY-MM-DD">
+        </div>
+        <button type="submit" class="btn btn-success w-100">Guardar Producto</button>
+    </form>
+</div>
+{% endblock %}
+

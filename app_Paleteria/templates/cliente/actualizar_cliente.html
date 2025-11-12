@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Actualizar Cliente</h2>
+  <form method="POST" action="{% url 'realizar_actualizacion_cliente' cliente.id_cliente %}">
+    {% csrf_token %}
+    <input type="text" name="nombre" value="{{ cliente.nombre }}" class="form-control mb-2" required>
+    <input type="text" name="apellido" value="{{ cliente.apellido }}" class="form-control mb-2" required>
+    <input type="text" name="telefono" value="{{ cliente.telefono }}" class="form-control mb-2" required>
+    <input type="email" name="email" value="{{ cliente.email }}" class="form-control mb-2" required>
+    <input type="text" name="direccion" value="{{ cliente.direccion }}" class="form-control mb-2" required>
+    <input type="text" name="ciudad" value="{{ cliente.ciudad }}" class="form-control mb-2" required> <!-- Agregado -->
+
+    <label>Fecha de registro:</label>
+    <input type="date" name="fecha_registro" value="{{ cliente.fecha_registro|date:'Y-m-d' }}" class="form-control mb-3">
+
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+  </form>
+</div>
+{% endblock %}
+
